@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!--
+    Note the latest version of 'repo' complains that local_manifest.xml is
+    deprecated and directs the user to put local manifests in a directory
+    named local_manifests.  Unfortunately, this seems broken at the moment
+    due to an error in the code.
+
+    In manifest_xml.py we see this basic structure:
+
+    for local_file in sorted(os.listdir(local_dir)):
+      nodes.append(self._ParseManifestXml(local_file, self.repodir))
+
+    On my system, os.listdir() returns a filename with no path, so this
+    fails because _ParseManifestXml() is looking for local_file in the
+    current directory.
+  -->
+
+  <remote name="q" fetch="https://github.com/thebigq" />
+
+  <!-- *** Removed repos *** -->
+
+  <remove-project name="CyanogenMod/android_external_vim" />
+
+  <!-- *** Locally changed repos *** -->
+
+  <remove-project name="CyanogenMod/android_vendor_cm" />
+  <project path="vendor/cm" name="cm_vendor_cm" remote="q" />
+
+  <remove-project name="CyanogenMod/android_frameworks_base" />
+  <project path="frameworks/base" name="cm_frameworks_base" remote="q" />
+
+  <!-- *** thunderc device and vendor repos *** -->
+
+  <project path="device/lge/thunderc" name="cm_device_lge_thunderc" remote="q" />
+  <project path="device/lge/VM670" name="cm_device_lge_VM670" remote="q" />
+  <project path="device/lge/LS670" name="cm_device_lge_LS670" remote="q" />
+  <project path="device/lge/VS660" name="cm_device_lge_VS660" remote="q" />
+  <project path="vendor/lge/thunderc" name="android_vendor_lge_thunderc" remote="q" />
+  <project path="vendor/lge/VM670" name="android_vendor_lge_VM670" remote="q" />
+  <project path="vendor/lge/LS670" name="android_vendor_lge_LS670" remote="q" />
+  <project path="vendor/lge/VS660" name="android_vendor_lge_VS660" remote="q" />
+
+  <!-- *** sniper device and vendor repos *** -->
+
+  <project path="device/lge/sniper" name="cm_device_lge_sniper" remote="q" />
+  <project path="device/lge/LS855" name="cm_device_lge_LS855" remote="q" />
+  <project path="device/lge/LG855" name="cm_device_lge_LG855" remote="q" />
+  <project path="device/lge/AS855" name="cm_device_lge_AS855" remote="q" />
+  <project path="device/lge/VM855" name="cm_device_lge_VM855" remote="q" />
+  <project path="vendor/lge/sniper" name="android_vendor_lge_sniper" remote="q" />
+  <project path="vendor/lge/LS855" name="android_vendor_lge_LS855" remote="q" />
+  <project path="vendor/lge/LG855" name="android_vendor_lge_LG855" remote="q" />
+  <project path="vendor/lge/AS855" name="android_vendor_lge_AS855" remote="q" />
+  <project path="vendor/lge/VM855" name="android_vendor_lge_VM855" remote="q" />
+
+  <!-- *** iproj device and vendor repos *** -->
+
+  <project path="device/lge/iproj" name="cm_device_lge_iproj" remote="q" />
+  <project path="device/lge/i_atnt" name="cm_device_lge_i_atnt" remote="q" />
+  <project path="device/lge/i_vzw" name="cm_device_lge_i_vzw" remote="q" />
+  <project path="vendor/lge/iproj" name="android_vendor_lge_iproj" remote="q" />
+  <project path="vendor/lge/i_atnt" name="android_vendor_lge_i_atnt" remote="q" />
+  <project path="vendor/lge/i_vzw" name="android_vendor_lge_i_vzw" remote="q" />
+
+</manifest>
